@@ -1,0 +1,19 @@
+---
+- name: install smartcard packages
+  become: yes
+  become_user: root
+  dnf:
+    name: "{{ sc_packages }}"
+    state: present
+
+- name: start pcscd service
+  become: yes
+  become_user: root
+  systemd:
+    name: "{{ sc_pcscd_systemd_service }}"
+    enabled: yes
+    state: started
+
+- name: enable CAC support
+  import_tasks: cac_support.yml
+  when: sc_cac_enabled | bool

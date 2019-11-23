@@ -1,0 +1,9 @@
+---
+sc_packages:
+  - '@Smart Card Support'
+  - gnutls-utils
+  - opensc
+  - pcsc-lite
+sc_pcscd_systemd_service: pcscd.service
+sc_cackey_package_url: "http://cackey.rkeene.org/download/{{ sc_cackey_version }}/cackey-{{ sc_cackey_version }}-1.x86_64.rpm"
+sc_dod_ca_certs_url: http://militarycac.com/maccerts/AllCerts.zip

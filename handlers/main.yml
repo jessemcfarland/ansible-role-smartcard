@@ -1,0 +1,12 @@
+---
+- name: restart pcscd service
+  become: yes
+  become_user: root
+  systemd:
+    name: "{{ sc_pcscd_systemd_service }}"
+    state: restarted
+
+- name: run update-ca-trust extract
+  become: yes
+  become_user: root
+  command: update-ca-trust extract

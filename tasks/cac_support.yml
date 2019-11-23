@@ -1,0 +1,30 @@
+---
+- name: install cackey package
+  become: yes
+  become_user: root
+  dnf:
+    name: "{{ sc_cackey_package_url }}"
+    state: present
+
+- name: enable libcackey module
+  become: yes
+  become_user: root
+  template:
+    src: libcackey.module.j2
+    dest: /etc/pkcs11/modules/libcackey.module
+    owner: root
+    group: root
+    mode: 0755
+  notify: restart pcscd service
+
+- name: install DoD CA certficates
+  become: yes
+  become_user: root
+  unarchive:
+    src: "{{ sc_dod_ca_certs_url }}"
+    dest: /etc/pki/ca-trust/source/anchors
+    owner: root
+    group: root
+    mode: 0644
+    remote_src: yes
+  notify: run update-ca-trust extract
