@@ -1,0 +1,9 @@
+---
+galaxy_info:
+  role_name: smartcard
+  author: Jesse McFarland
+  description: An Ansible role for enabling smart card support
+  license: Apache
+  min_ansible_version: 2.8
+  galaxy_tags: []
+dependencies: []
