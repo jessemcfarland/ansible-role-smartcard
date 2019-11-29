@@ -2,7 +2,7 @@
 - name: install cackey package
   become: yes
   become_user: root
-  dnf:
+  yum:
     name: "{{ sc_cackey_package_url }}"
     state: present
 

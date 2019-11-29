@@ -2,7 +2,7 @@
 - name: install smartcard packages
   become: yes
   become_user: root
-  dnf:
+  yum:
     name: "{{ sc_packages }}"
     state: present
 

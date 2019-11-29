@@ -1,10 +1,12 @@
 # Smartcard
-* Configures Red Hat family systems to read smart cards.
-* Installs tools for interacting with smart cards.
-
 ## Requirements
 * Ansible 2.8
 * Red Hat/CentOS 8
+* Red Hat/CentOS 7
+
+## Role Description
+* Configures Red Hat family systems to read smart cards.
+* Installs tools for interacting with smart cards.
 
 ## Role Variables
 |Name|Default Value|Description|
